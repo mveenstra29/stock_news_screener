@@ -1,0 +1,6 @@
+{
+  "holdings": [
+    {"ticker": "ASML.AS", "shares": 10},
+    {"ticker": "AAPL", "shares": 5}
+  ]
+}
