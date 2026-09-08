@@ -1,13 +1,24 @@
 """Tests for prices.py.
 
-prices.py is currently a stub (see src/portfolio_narrator/prices.py).
-Write real tests here once get_price_data is implemented — e.g. mock the
-yfinance call and assert the returned (today_close, prev_close) shape.
+These tests make a real network call to Yahoo Finance via yfinance, using
+a well-known, stable ticker (AAPL). We don't assert exact price values
+since those change every trading day — only that the function returns
+the shape it promises without erroring.
 """
 
-import pytest
+from portfolio_narrator.prices import get_price_data
 
 
-@pytest.mark.skip(reason="prices.py is not implemented yet")
 def test_get_price_data():
-    pass
+    result = get_price_data("AAPL")
+
+    # AAPL trades every weekday, so we should always get real data back.
+    assert result is not None
+
+    today_close, prev_close = result
+    assert isinstance(today_close, float)
+    assert isinstance(prev_close, float)
+
+    # Prices should be positive numbers, not zero or negative.
+    assert today_close > 0
+    assert prev_close > 0

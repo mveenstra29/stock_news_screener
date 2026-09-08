@@ -33,3 +33,7 @@ This separation exists because LLMs are unreliable at arithmetic and can silentl
 `prices.py`, `news.py`, `narrator.py`, and `main.py` are stubs (`raise NotImplementedError`) meant to be built out one at a time, in that dependency order (each stub's docstring specifies its exact expected inputs/outputs and the library to use). `calculations.py` is fully implemented and tested since it has to be rock-solid; `tests/test_calculations.py` covers positive, negative, and zero-change scenarios. `tests/test_prices.py` and `tests/test_narrator.py` are skipped placeholders to fill in alongside their corresponding modules.
 
 `data/` and `output/` are gitignored working directories for local cache and generated narratives, respectively.
+
+## Workflow
+
+I am learning to code, so after every session explain very detailed what is done
